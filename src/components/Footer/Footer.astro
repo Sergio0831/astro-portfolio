@@ -1,0 +1,11 @@
+---
+import classes from './Footer.module.css';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class={classes.footer + ' text-center'}>
+  <div class="wrapper-outer">
+    <p class="footer__copy">Copyright &copy; {currentYear}. Made by Sergejs Ivcenko</p>
+  </div>
+</footer>
