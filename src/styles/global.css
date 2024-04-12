@@ -327,7 +327,6 @@ body {
   transition: transform var(--transition-base), background-color var(--transition-base),
     box-shadow var(--transition-base);
   box-shadow: var(--blue-shadow);
-  position: var(--p-relative);
   outline: none;
   will-change: transform;
 }

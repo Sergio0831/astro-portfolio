@@ -1,0 +1,13 @@
+---
+import NavigationBtn from '../NavigationBtn/NavigationBtn.astro';
+import NavigationLinks from '../NavigationLinks/NavigationLinks.astro';
+
+import classes from './Navigation.module.css';
+---
+
+<div id="navigation">
+  <NavigationBtn />
+  <div id="navBg" class={classes.navigationBg} aria-expanded="false" role="navigation">
+    <NavigationLinks />
+  </div>
+</div>

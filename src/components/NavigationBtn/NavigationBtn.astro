@@ -1,0 +1,59 @@
+---
+import classes from './NavigationBtn.module.css';
+---
+
+<button
+  type="button"
+  id="navBtn"
+  class:list={[classes.navigationBtn, 'btn btn-round center outline']}
+  aria-label="Open Navigation"
+  aria-pressed="false">
+  <span class={classes.navigationIcon}></span>
+</button>
+
+<script>
+  import { toggleMenu } from '../../lib/navMenu/toggleMenu';
+  import tabTrappingKey from '../../lib/focusTrap';
+  import { closeMenu } from '../../lib/navMenu/closeMenu';
+  import { animateNavLinks } from '../../lib/animations/animateNavLinks';
+
+  // Select the navigation button
+  const navBtn = document.getElementById('navBtn') as HTMLButtonElement;
+  const navigation = document.getElementById('navigation') as HTMLDivElement;
+
+  // Define a named function for the 'keydown' event handler
+  const handleEventHandler = (e: KeyboardEvent) => {
+    tabTrappingKey(e, navigation);
+  };
+
+  // Create and initialize the navigation links animation timeline
+  const navLinksTimeLine = animateNavLinks();
+
+  // Attach a click event handler to the navigation button toggle the navigation and play/reverse the timeline
+  navBtn.addEventListener('click', () => {
+    toggleMenu(navBtn);
+
+    // Implement focus trap
+    if (navBtn.getAttribute('aria-pressed') === 'true') {
+      // If navigation button 'aria-pressed' is true, add the focus trap
+      document.addEventListener('keydown', handleEventHandler);
+    } else {
+      // If navigation button 'aria-pressed' is false, remove the focus trap
+      document.removeEventListener('keydown', handleEventHandler);
+    }
+
+    navLinksTimeLine.reversed(!navLinksTimeLine.reversed());
+  });
+
+  // Attach 'keydown' event handler to the document and close navigation menu when 'esc' key pressed
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMenu(navBtn);
+
+      // Remove the focus trap
+      document.removeEventListener('keydown', handleEventHandler);
+
+      navLinksTimeLine.reversed(!navLinksTimeLine.reversed());
+    }
+  });
+</script>

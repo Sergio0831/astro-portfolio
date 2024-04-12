@@ -1,5 +1,7 @@
 ---
 import Footer from '../components/Footer/Footer.astro';
+import Header from '../components/Header/Header.astro';
+import ThemeBtn from '../components/ThemeBtn/ThemeBtn.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -13,7 +15,7 @@ const { pageTitle, pageDescription } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={pageDescription} />
     <meta name="generator" content={Astro.generator} />
@@ -21,7 +23,9 @@ const { pageTitle, pageDescription } = Astro.props;
   </head>
   <body>
     <div class="wrapper-grid">
-      <slot />
+      <Header />
+      <main><slot /></main>
+      <ThemeBtn />
       <Footer />
     </div>
   </body>

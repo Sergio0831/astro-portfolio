@@ -1,0 +1,38 @@
+---
+import classes from './ThemeBtn.module.css';
+---
+
+<button
+  type="button"
+  id="themeBtn"
+  class:list={[classes.themeBtn, 'btn btn-round center']}
+  role="switch"
+  aria-checked="false"
+  aria-label="Light Theme">
+</button>
+
+<script>
+  import { getCurrentTheme } from '../../lib/theme/getCurrentTheme';
+  import { loadTheme } from '../../lib/theme/loadTheme';
+
+  const themeBtn = document.getElementById('themeBtn') as HTMLButtonElement;
+
+  themeBtn.addEventListener('click', () => {
+    // Get current theme
+    let theme = getCurrentTheme();
+
+    // Toggle theme between dark and light
+    theme === 'dark' ? (theme = 'light') : (theme = 'dark');
+
+    // Store the updated theme in the local storage
+    localStorage.setItem('theme', `${theme}`);
+
+    // Load an aply the updated theme
+    loadTheme(theme);
+  });
+
+  // Get the current theme
+  const theme = getCurrentTheme();
+  // Load the current theme
+  loadTheme(theme);
+</script>

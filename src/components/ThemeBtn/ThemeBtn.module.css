@@ -1,0 +1,11 @@
+.themeBtn {
+  position: var(--p-fixed);
+  bottom: 4.5rem;
+  right: calc((100% - var(--wrapper-outer-width)) / 2);
+  z-index: 3;
+}
+
+.themeBtn svg {
+  width: 1.625rem;
+  height: 1.625rem;
+}

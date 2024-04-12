@@ -6,6 +6,9 @@ const currentYear = new Date().getFullYear();
 
 <footer class={classes.footer + ' text-center'}>
   <div class="wrapper-outer">
-    <p class="footer__copy">Copyright &copy; {currentYear}. Made by Sergejs Ivcenko</p>
+    <p class="footer__copy">
+      Copyright &copy; <span data-testid="current-year">{currentYear}</span>. Made by Sergejs
+      Ivcenko
+    </p>
   </div>
 </footer>

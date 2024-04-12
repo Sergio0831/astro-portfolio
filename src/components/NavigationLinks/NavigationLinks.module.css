@@ -1,0 +1,44 @@
+/* Nav styles */
+.navigation {
+  display: none;
+  height: var(--h-full);
+  padding: 20vh 0 0;
+}
+
+/* Nav links styles */
+.navigation__item {
+  margin: 0 0 var(--spacing-7);
+  will-change: transform;
+}
+
+.navigation__item:last-child {
+  margin: 0;
+}
+
+.navigation__link {
+  position: var(--p-relative);
+  font-size: var(--text-3xl);
+  color: var(--secondary-clr-light);
+  font-family: var(--font-headings);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-small);
+  letter-spacing: 1px;
+}
+
+/* Nav links hover animation */
+span[data-title]::before {
+  content: attr(data-title);
+  position: var(--p-absolute);
+  top: var(--inset-y-0);
+  left: var(--inset-x-0);
+  color: var(--monochrome-clr-light);
+  clip-path: inset(0 0 0 0);
+  transition: transform var(--transition-base), opacity var(--transition-base),
+    clip-path var(--transition-base);
+}
+
+.navigation__link:hover span[data-title]::before,
+.navigation__link:focus-visible span[data-title]::before,
+.active span[data-title]::before {
+  clip-path: inset(100% 0 0 0);
+}

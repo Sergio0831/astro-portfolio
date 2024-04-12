@@ -13,11 +13,13 @@
   "dependencies": {
     "@astrojs/check": "^0.5.10",
     "astro": "^4.5.17",
+    "gsap": "^3.12.5",
     "typescript": "^5.4.4"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.0.0",
     "@testing-library/jest-dom": "^6.4.2",
+    "@types/node": "^20.12.7",
     "jsdom": "^24.0.0",
     "vitest": "^1.4.0"
   }

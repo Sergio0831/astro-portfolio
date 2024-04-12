@@ -1,0 +1,50 @@
+.navigationBtn {
+  text-align: var(--align-center);
+  z-index: 5;
+}
+
+.navigationIcon {
+  position: var(--p-relative);
+}
+
+.navigationIcon,
+.navigationIcon::before,
+.navigationIcon::after {
+  height: 3px;
+  width: 1.875rem;
+  background-color: var(--monochrome-clr-light);
+  transition: transform var(--transition-base), background-color var(--transition-base);
+  border-radius: var(--rounded);
+  transition-delay: 0.9s;
+  will-change: transform;
+}
+
+.navigationIcon::after,
+.navigationIcon::before {
+  content: '';
+  position: var(--p-absolute);
+  left: 0;
+}
+
+.navigationIcon::before {
+  transform: translateY(-0.563rem);
+}
+.navigationIcon::after {
+  transform: translateY(0.563rem);
+}
+
+.navigationBtn[aria-pressed='true'] .navigationIcon {
+  background-color: var(--clr-transparent);
+  transition-delay: 0s;
+}
+
+/* Rotate navigation button lines when aria-pressed attribute is true */
+.navigationBtn[aria-pressed='true'] .navigationIcon::before {
+  transform: translateY(0) rotate(135deg);
+  transition-delay: 0s;
+}
+
+.navigationBtn[aria-pressed='true'] .navigationIcon::after {
+  transform: translateY(0) rotate(-135deg);
+  transition-delay: 0s;
+}
