@@ -10,7 +10,9 @@ export const toggleMenu = (navBtn: HTMLButtonElement) => {
   // Update the 'aria-label' attribute
   navBtn.setAttribute('aria-label', newState ? 'Close Navigation' : 'Open Navigation');
   // Update the 'aria-expanded' attribute
-  navBg.setAttribute('aria-expanded', `${newState}`);
+  if (navBg) {
+    navBg.setAttribute('aria-expanded', `${newState}`);
+  }
 
   // Toggle body scroll
   document.body.style.overflow = newState ? 'hidden' : 'auto';
