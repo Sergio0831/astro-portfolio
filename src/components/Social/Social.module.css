@@ -1,0 +1,10 @@
+.link {
+  width: 2.375rem;
+  height: 2.375rem;
+  color: var(--theme-btn);
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--clr-secondary);
+}

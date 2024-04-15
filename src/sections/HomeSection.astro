@@ -1,0 +1,48 @@
+---
+import Social from '../components/Social/Social.astro';
+import classes from './HomeSection.module.css';
+import portrait from '../assets/images/home/portrait.webp';
+import { Picture } from 'astro:assets';
+---
+
+<section class="wrapper-outer">
+  <div class:list={[classes.columns, 'wrapper-inner']}>
+    <div class={classes.content}>
+      <div>
+        <h1 class:list={[classes.title, 'heading-1']}>Hello, I&apos;m <span>Sergejs</span></h1>
+        <p class={classes.desc}>
+          Welcome to my portfolio! I&apos;m a passionate, creative and problem solving Frontend Web
+          Developer. I create modern, clean, mobile first, responsive, functional and beautiful
+          interfaces using various tools and technologies.
+        </p>
+      </div>
+      <div class={classes.socials}>
+        <Social link="https://github.com/Sergio0831" ariaLabel="GitHub Profile" iconName="github" />
+        <Social
+          link="https://www.linkedin.com/in/ivcenko/"
+          ariaLabel="LinkdeIn Profile"
+          iconName="linkedin"
+        />
+      </div>
+      <a
+        href="/Sergejs_Ivcenko_CV.pdf"
+        class:list={[classes.btn, 'btn-primary btn-primary--large']}
+        download>
+        Download CV
+      </a>
+    </div>
+    <!-- Home image start -->
+    <Picture
+      src={portrait}
+      alt="Sergejs Ivcenko Portrait"
+      formats={['avif', 'webp']}
+      widths={[400, 460, 960]}
+      quality={75}
+      sizes={'(min-width: 960px) 460px, (min-width: 460px) 960px, 400px'}
+      class={classes.portrait}
+      loading="eager"
+      fetchpriority="high"
+    />
+    <!-- Home image end -->
+  </div>
+</section>

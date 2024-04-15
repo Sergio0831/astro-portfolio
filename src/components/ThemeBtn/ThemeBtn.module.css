@@ -8,4 +8,22 @@
 .themeBtn svg {
   width: 1.625rem;
   height: 1.625rem;
+  position: absolute;
+}
+
+.themeBtn [data-icon='moon'] {
+  opacity: 0;
+}
+
+.themeBtn [data-icon='sun'],
+.themeBtn [data-icon='moon'] {
+  transition: var(--transition-base);
+}
+
+[color-scheme='dark'] [data-icon='sun'] {
+  opacity: 0;
+}
+
+[color-scheme='dark'] [data-icon='moon'] {
+  opacity: 1;
 }

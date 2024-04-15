@@ -196,18 +196,6 @@
   }
 }
 
-/* Color scheme for the dark mode */
-[color-scheme='dark'] {
-  --body-bg: var(--primary-clr-dark);
-  --form-bg: var(--primary-clr-dark-light);
-  --body-text: var(--monochrome-clr-light);
-  --theme-btn: var(--primary-clr-light);
-  --clr-secondary: var(--secondary-clr-light);
-  --body-link: var(--secondary-clr-light);
-  --input: var(--clr-input-light);
-  --error: var(--clr-error-light);
-}
-
 /* Color scheme for the light mode */
 [color-scheme='light'] {
   --body-bg: var(--monochrome-clr-light);
@@ -218,6 +206,18 @@
   --body-link: var(--primary-clr-base);
   --input: var(--clr-input-dark);
   --error: var(--clr-error-base);
+}
+
+/* Color scheme for the dark mode */
+[color-scheme='dark'] {
+  --body-bg: var(--primary-clr-dark);
+  --form-bg: var(--primary-clr-dark-light);
+  --body-text: var(--monochrome-clr-light);
+  --theme-btn: var(--primary-clr-light);
+  --clr-secondary: var(--secondary-clr-light);
+  --body-link: var(--secondary-clr-light);
+  --input: var(--clr-input-light);
+  --error: var(--clr-error-light);
 }
 
 /* Reset styles */
@@ -474,4 +474,12 @@ body {
 .outline:focus-visible::before {
   opacity: var(--opacity-full);
   box-shadow: 0 0 0 0.2rem var(--clr-current);
+}
+
+/* Media query for the tablet screen with min-width of the 460px - 28.75rem */
+@media screen and (min-width: 30rem) {
+  /* Base styles */
+  body {
+    font-size: var(--text-md);
+  }
 }

@@ -1,0 +1,16 @@
+---
+import { Icon } from 'astro-icon/components';
+import classes from './Social.module.css';
+
+interface Props {
+  link: string;
+  ariaLabel: string;
+  iconName: string;
+}
+
+const { link, ariaLabel, iconName }: Props = Astro.props;
+---
+
+<a href={link} target="_blank" aria-label={ariaLabel} class={classes.link}
+  ><Icon name={iconName} size={38} /></a
+>

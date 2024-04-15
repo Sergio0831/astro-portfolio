@@ -1,8 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
 import classes from './ThemeBtn.module.css';
-
-
-
 ---
 
 <button
@@ -12,6 +10,8 @@ import classes from './ThemeBtn.module.css';
   role="switch"
   aria-checked="false"
   aria-label="Light Theme">
+  <Icon class="moon" name="moon" />
+  <Icon class="sun" name="sun" />
 </button>
 
 <script>
