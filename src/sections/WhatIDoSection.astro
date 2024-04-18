@@ -1,0 +1,20 @@
+---
+import { aboutMe } from '@data/aboutMe';
+import classes from './WhatIDoSection.module.css';
+
+const { whatIDo } = aboutMe;
+---
+
+<section class={classes.section}>
+  <h2 class:list={[classes.section__title, 'heading-3']}>What I Do</h2>
+  <div class:list={[classes.section__columns, 'responsive-columns']}>
+    {
+      whatIDo.map((info) => (
+        <section class={classes.column}>
+          <h3 class:list={[classes.column__title, 'heading-4']}>{info.title}</h3>
+          <p>{info.description}</p>
+        </section>
+      ))
+    }
+  </div>
+</section>

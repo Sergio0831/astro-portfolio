@@ -1,0 +1,13 @@
+---
+import { aboutMe } from '@data/aboutMe';
+import classes from './Skills.module.css';
+
+const { skills } = aboutMe;
+---
+
+<section class={classes.skills}>
+  <h2 class:list={[classes.skills__title, 'heading-3']}>My Skills</h2>
+  <ul class:list={[classes.skills__list, 'responsive-columns']}>
+    {skills.map((skill) => <li class={classes.skills__item}>{skill}</li>)}
+  </ul>
+</section>

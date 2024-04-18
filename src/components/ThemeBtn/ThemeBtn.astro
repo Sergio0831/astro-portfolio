@@ -1,6 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components';
 import classes from './ThemeBtn.module.css';
+
+const theme = Astro.cookies.get('theme')?.value ?? 'system';
 ---
 
 <button
@@ -9,33 +11,37 @@ import classes from './ThemeBtn.module.css';
   class:list={[classes.themeBtn, 'btn btn-round center']}
   role="switch"
   aria-checked="false"
-  aria-label="Light Theme">
-  <Icon class="moon" name="moon" />
+  aria-label={`${theme} theme`}>
   <Icon class="sun" name="sun" />
+  <Icon class="moon" name="moon" />
 </button>
 
 <script>
-  import { getCurrentTheme } from '../../lib/theme/getCurrentTheme';
-  import { loadTheme } from '../../lib/theme/loadTheme';
+  import { changeTheme, getSystemTheme, saveTheme } from '@lib/theme';
+  import type { Theme } from 'src/types';
 
   const themeBtn = document.getElementById('themeBtn') as HTMLButtonElement;
 
+  const systemTheme = getSystemTheme();
+
   themeBtn.addEventListener('click', () => {
-    // Get current theme
-    let theme = getCurrentTheme();
+    const currentTheme = document.documentElement.getAttribute('color-scheme') as Theme;
 
     // Toggle theme between dark and light
-    theme === 'dark' ? (theme = 'light') : (theme = 'dark');
+    let newTheme: Theme;
+    if (systemTheme === 'dark' && currentTheme !== 'light') {
+      newTheme = 'light';
+    } else if (systemTheme === 'light' && currentTheme !== 'dark') {
+      newTheme = 'dark';
+    } else {
+      newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    }
 
-    // Store the updated theme in the local storage
-    localStorage.setItem('theme', `${theme}`);
+    const isDark = newTheme === 'dark';
+    themeBtn.setAttribute('aria-label', `${isDark ? 'dark' : 'light'} theme`);
+    themeBtn.setAttribute('aria-checked', `${isDark}`);
 
-    // Load an aply the updated theme
-    loadTheme(theme);
+    changeTheme(newTheme);
+    saveTheme(newTheme);
   });
-
-  // Get the current theme
-  const theme = getCurrentTheme();
-  // Load the current theme
-  loadTheme(theme);
 </script>

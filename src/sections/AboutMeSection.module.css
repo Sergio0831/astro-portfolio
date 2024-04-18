@@ -1,0 +1,35 @@
+.about {
+  margin: 0 0 var(--spacing-10);
+}
+
+.about__columns {
+  display: var(--d-grid);
+  row-gap: var(--spacing-8);
+}
+
+.about__info p:nth-child(2) {
+  margin: var(--spacing-2) 0;
+}
+
+.about__image {
+  border-radius: var(--rounded-md);
+}
+
+/* Media query for the tablet screen with min-width of the 460px - 28.75rem */
+@media screen and (min-width: 30rem) {
+  .about {
+    margin: 0 0 var(--spacing-15);
+  }
+}
+
+/* Media query for the screen with min-width of the 960px - 60rem */
+@media screen and (min-width: 60rem) {
+  .about {
+    padding: var(--spacing-8) 0 0;
+  }
+
+  .about__columns {
+    grid-template-columns: 47% 28.5rem;
+    justify-content: var(--justify-between);
+  }
+}

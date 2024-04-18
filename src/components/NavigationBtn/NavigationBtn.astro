@@ -12,10 +12,9 @@ import classes from './NavigationBtn.module.css';
 </button>
 
 <script>
-  import { toggleMenu } from '../../lib/navMenu/toggleMenu';
-  import tabTrappingKey from '../../lib/focusTrap';
-  import { closeMenu } from '../../lib/navMenu/closeMenu';
-  import { animateNavLinks } from '../../lib/animations/animateNavLinks';
+  import { animateNavLinks } from '@lib/animations/animateNavLinks';
+  import tabTrappingKey from '@lib/focusTrap';
+  import { closeMenu, toggleMenu } from '@lib/navMenu';
 
   // Select the navigation button
   const navBtn = document.getElementById('navBtn') as HTMLButtonElement;

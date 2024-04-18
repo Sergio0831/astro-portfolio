@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { toggleMenu } from './toggleMenu';
+import { toggleMenu } from './navMenu';
 
 describe('toggleMenu', () => {
   const navBtn = document.createElement('button');

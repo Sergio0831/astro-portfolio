@@ -166,6 +166,17 @@
 
   /* Transition */
   --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Media for the system lignt mode */
+  --body-bg: var(--monochrome-clr-light);
+  --form-bg: var(--monochrome-clr-light);
+  --body-text: var(--monochrome-clr-dark);
+  --theme-btn: var(--primary-clr-base);
+  --clr-secondary: var(--secondary-clr-base);
+  --body-link: var(--primary-clr-base);
+  --input: var(--clr-input-dark);
+  --error: var(--clr-error-base);
+  color-scheme: light;
 }
 
 /* Media for the system dark mode */
@@ -179,20 +190,7 @@
     --body-link: var(--secondary-clr-light);
     --error: var(--clr-error-light);
     --input: var(--clr-input-light);
-  }
-}
-
-/* Media for the system lignt mode */
-@media (prefers-color-scheme: light) {
-  :root {
-    --body-bg: var(--monochrome-clr-light);
-    --form-bg: var(--monochrome-clr-light);
-    --body-text: var(--monochrome-clr-dark);
-    --theme-btn: var(--primary-clr-base);
-    --clr-secondary: var(--secondary-clr-base);
-    --body-link: var(--primary-clr-base);
-    --input: var(--clr-input-dark);
-    --error: var(--clr-error-base);
+    color-scheme: dark;
   }
 }
 
@@ -206,6 +204,7 @@
   --body-link: var(--primary-clr-base);
   --input: var(--clr-input-dark);
   --error: var(--clr-error-base);
+  color-scheme: light;
 }
 
 /* Color scheme for the dark mode */
@@ -218,6 +217,7 @@
   --body-link: var(--secondary-clr-light);
   --input: var(--clr-input-light);
   --error: var(--clr-error-light);
+  color-scheme: dark;
 }
 
 /* Reset styles */

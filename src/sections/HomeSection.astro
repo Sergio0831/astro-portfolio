@@ -1,7 +1,7 @@
 ---
-import Social from '../components/Social/Social.astro';
 import classes from './HomeSection.module.css';
-import portrait from '../assets/images/home/portrait.webp';
+import portrait from 'src/assets/images/home/portrait.webp';
+import Social from '@components/Social/Social.astro';
 import { Picture } from 'astro:assets';
 ---
 
@@ -31,18 +31,18 @@ import { Picture } from 'astro:assets';
         Download CV
       </a>
     </div>
-    <!-- Home image start -->
+    {/* Home image start */}
     <Picture
       src={portrait}
       alt="Sergejs Ivcenko Portrait"
       formats={['avif', 'webp']}
-      widths={[400, 460, 960]}
+      widths={[420, 460, 820, 960]}
       quality={75}
-      sizes={'(min-width: 960px) 460px, (min-width: 460px) 960px, 400px'}
+      sizes={'(min-width: 960px) 460px, (min-width: 820px) 960px, (min-width: 460px) 820px, 420px'}
       class={classes.portrait}
       loading="eager"
       fetchpriority="high"
     />
-    <!-- Home image end -->
+    {/* Home image end */}
   </div>
 </section>

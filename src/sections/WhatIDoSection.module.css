@@ -1,0 +1,35 @@
+.section {
+  margin: 0 0 var(--spacing-10);
+}
+
+.section__title {
+  margin: 0 0 var(--spacing-5);
+}
+
+.section__columns {
+  column-gap: 8%;
+  row-gap: var(--spacing-6);
+}
+
+.column {
+  flex: 1 0 calc(21.25rem - 8%);
+}
+
+.column__title {
+  margin: 0 0 var(--spacing-3);
+}
+
+/* Media query for the tablet screen with min-width of the 460px - 28.75rem */
+@media screen and (min-width: 30rem) {
+  .section {
+    margin: 0 0 var(--spacing-15);
+  }
+
+  .section__title {
+    margin: 0 0 var(--spacing-8);
+  }
+
+  .column__title {
+    margin: 0 0 var(--spacing-4);
+  }
+}

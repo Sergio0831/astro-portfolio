@@ -17,3 +17,9 @@ export const toggleMenu = (navBtn: HTMLButtonElement) => {
   // Toggle body scroll
   document.body.style.overflow = newState ? 'hidden' : 'auto';
 };
+
+export const closeMenu = (navBtn: HTMLButtonElement) => {
+  if (navBtn.getAttribute('aria-pressed') === 'true') {
+    toggleMenu(navBtn);
+  }
+};

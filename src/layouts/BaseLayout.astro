@@ -1,8 +1,9 @@
 ---
-import Footer from '../components/Footer/Footer.astro';
-import Header from '../components/Header/Header.astro';
-import ThemeBtn from '../components/ThemeBtn/ThemeBtn.astro';
 import '../styles/global.css';
+import Header from '@components/Header/Header.astro';
+import ThemeBtn from '@components/ThemeBtn/ThemeBtn.astro';
+import Footer from '@components/Footer/Footer.astro';
+import CustomCursor from '@components/CustomCursor/CustomCursor.astro';
 
 interface Props {
   pageTitle: string;
@@ -10,9 +11,11 @@ interface Props {
 }
 
 const { pageTitle, pageDescription } = Astro.props;
+
+const theme = Astro.cookies.get('theme')?.value ?? 'system';
 ---
 
-<html lang="en">
+<html lang="en" color-scheme={theme}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -22,6 +25,7 @@ const { pageTitle, pageDescription } = Astro.props;
     <title>{pageTitle}</title>
   </head>
   <body>
+    <CustomCursor />
     <div class="wrapper-grid">
       <Header />
       <slot />

@@ -1,13 +1,22 @@
 ---
 import classes from './Header.module.css';
 import Navigation from '../Navigation/Navigation.astro';
+import Logo from '../Logo/Logo.astro';
+
+const homePage = Astro.url.pathname === '/';
 ---
 
 <header class={classes.header}>
   <div class="wrapper-outer center-y space-between">
-    <!-- Logo start -->
-    <div id="logo"></div>
-    <!-- Logo end -->
+    {
+      homePage ? (
+        <Logo />
+      ) : (
+        <a class:list={[classes.header__logo, 'outline']} href="/">
+          <Logo />
+        </a>
+      )
+    }
     <Navigation />
   </div>
 </header>

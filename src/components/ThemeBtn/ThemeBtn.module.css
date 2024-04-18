@@ -9,9 +9,6 @@
   width: 1.625rem;
   height: 1.625rem;
   position: absolute;
-}
-
-.themeBtn [data-icon='moon'] {
   opacity: 0;
 }
 
@@ -20,10 +17,29 @@
   transition: var(--transition-base);
 }
 
-[color-scheme='dark'] [data-icon='sun'] {
-  opacity: 0;
+@media (prefers-color-scheme: dark) {
+  .themeBtn [data-icon='moon'] {
+    opacity: 1;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .themeBtn [data-icon='sun'] {
+    opacity: 1;
+  }
 }
 
 [color-scheme='dark'] [data-icon='moon'] {
   opacity: 1;
+}
+
+[color-scheme='dark'] [data-icon='sun'] {
+  opacity: 0;
+}
+
+[color-scheme='light'] [data-icon='sun'] {
+  opacity: 1;
+}
+[color-scheme='light'] [data-icon='moon'] {
+  opacity: 0;
 }

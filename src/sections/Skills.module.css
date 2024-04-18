@@ -1,0 +1,31 @@
+.skills__title {
+  margin: 0 0 var(--spacing-5);
+}
+
+.skills__list {
+  gap: var(--spacing-3);
+}
+
+.skills__item {
+  color: var(--monochrome-clr-light);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--rounded-md);
+  background-color: var(--primary-clr-dark-light);
+  padding: var(--spacing-2-5) var(--spacing-4);
+  font-size: var(--text-md);
+}
+
+/* Media query for the tablet screen with min-width of the 460px - 28.75rem */
+@media screen and (min-width: 30rem) {
+  .skills {
+    margin: 0 0 var(--spacing-15);
+  }
+
+  .skills__title {
+    margin: 0 0 var(--spacing-8);
+  }
+
+  .skills__item {
+    font-size: 1.25rem;
+  }
+}
