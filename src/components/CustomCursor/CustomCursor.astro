@@ -63,7 +63,7 @@ import classes from './CustomCursor.module.css';
   });
 
   // Attach a 'mouseout' event listener to the body to hide custom cursor
-  document.body.addEventListener('mouseout', (e) => {
+  document.body.addEventListener('mouseout', () => {
     cursor.setAttribute('aria-hidden', 'true');
   });
 </script>

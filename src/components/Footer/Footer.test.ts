@@ -1,4 +1,3 @@
-import { screen } from '@testing-library/dom';
 import { describe, expect, test } from 'vitest';
 
 describe('Footer', () => {

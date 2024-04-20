@@ -4,6 +4,7 @@ import Header from '@components/Header/Header.astro';
 import ThemeBtn from '@components/ThemeBtn/ThemeBtn.astro';
 import Footer from '@components/Footer/Footer.astro';
 import CustomCursor from '@components/CustomCursor/CustomCursor.astro';
+import AstroFont from '@components/AstroFont/AstroFont.astro';
 
 interface Props {
   pageTitle: string;
@@ -22,6 +23,7 @@ const theme = Astro.cookies.get('theme')?.value ?? 'system';
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={pageDescription} />
     <meta name="generator" content={Astro.generator} />
+    <AstroFont />
     <title>{pageTitle}</title>
   </head>
   <body>

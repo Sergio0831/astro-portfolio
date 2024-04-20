@@ -1,0 +1,65 @@
+---
+import { join } from 'node:path';
+import { AstroFont as Font } from 'astro-font';
+---
+
+<Font
+  config={[
+    {
+      name: 'SF Pro Display',
+      src: [
+        {
+          weight: '700',
+          style: 'normal',
+          path: join(process.cwd(), 'public', 'fonts', 'SF-Pro-Display-Bold.woff2'),
+        },
+      ],
+      preload: true,
+      display: 'swap',
+      fallback: 'serif',
+      cssVariable: 'font-headings',
+    },
+    {
+      name: 'SF Pro Display',
+      src: [
+        {
+          weight: '500',
+          style: 'normal',
+          path: join(process.cwd(), 'public', 'fonts', 'SF-Pro-Display-Medium.woff2'),
+        },
+      ],
+      preload: true,
+      display: 'swap',
+      fallback: 'serif',
+      cssVariable: 'font-headings',
+    },
+    {
+      name: 'SF Pro Text',
+      src: [
+        {
+          weight: '600',
+          style: 'normal',
+          path: join(process.cwd(), 'public', 'fonts', 'SF-Pro-Text-Semibold.woff2'),
+        },
+      ],
+      preload: true,
+      display: 'swap',
+      fallback: 'serif',
+      cssVariable: 'font-body',
+    },
+    {
+      name: 'SF Pro Text',
+      src: [
+        {
+          weight: '400',
+          style: 'normal',
+          path: join(process.cwd(), 'public', 'fonts', 'SF-Pro-Text-Regular.woff2'),
+        },
+      ],
+      preload: true,
+      display: 'swap',
+      fallback: 'serif',
+      cssVariable: 'font-body',
+    },
+  ]}
+/>

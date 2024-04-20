@@ -1,8 +1,8 @@
 ---
+import { Picture } from 'astro:assets';
 import classes from './HomeSection.module.css';
 import portrait from 'src/assets/images/home/portrait.webp';
 import Social from '@components/Social/Social.astro';
-import { Picture } from 'astro:assets';
 ---
 
 <section class="wrapper-outer">
@@ -43,6 +43,7 @@ import { Picture } from 'astro:assets';
       loading="eager"
       fetchpriority="high"
     />
+
     {/* Home image end */}
   </div>
 </section>
