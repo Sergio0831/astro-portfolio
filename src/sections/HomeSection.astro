@@ -1,7 +1,7 @@
 ---
-import { Picture } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 import classes from './HomeSection.module.css';
-import portrait from 'src/assets/images/home/portrait.webp';
+import portrait from 'src/assets/images/home/portrait.jpg';
 import Social from '@components/Social/Social.astro';
 ---
 
@@ -32,12 +32,13 @@ import Social from '@components/Social/Social.astro';
       </a>
     </div>
     {/* Home image start */}
+
     <Picture
       src={portrait}
       alt="Sergejs Ivcenko Portrait"
       formats={['avif', 'webp']}
       widths={[420, 460, 820, 960]}
-      quality={75}
+      quality={70}
       sizes={'(min-width: 960px) 460px, (min-width: 820px) 960px, (min-width: 460px) 820px, 420px'}
       class={classes.portrait}
       loading="eager"

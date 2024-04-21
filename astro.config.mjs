@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 import icon from 'astro-icon';
 
 import netlify from '@astrojs/netlify';
@@ -10,6 +10,9 @@ export default defineConfig({
       iconDir: 'src/assets/icons',
     }),
   ],
-  output: 'hybrid',
+  image: {
+    service: squooshImageService(),
+  },
+  output: 'server',
   adapter: netlify(),
 });

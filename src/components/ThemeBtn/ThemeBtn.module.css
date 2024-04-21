@@ -29,17 +29,17 @@
   }
 }
 
-[color-scheme='dark'] [data-icon='moon'] {
+[data-theme='dark'] [data-icon='moon'] {
   opacity: 1;
 }
 
-[color-scheme='dark'] [data-icon='sun'] {
+[data-theme='dark'] [data-icon='sun'] {
   opacity: 0;
 }
 
-[color-scheme='light'] [data-icon='sun'] {
+[data-theme='light'] [data-icon='sun'] {
   opacity: 1;
 }
-[color-scheme='light'] [data-icon='moon'] {
+[data-theme='light'] [data-icon='moon'] {
   opacity: 0;
 }

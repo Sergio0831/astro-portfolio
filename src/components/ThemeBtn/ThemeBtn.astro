@@ -1,8 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
 import classes from './ThemeBtn.module.css';
-
-const theme = Astro.cookies.get('theme')?.value ?? 'system';
 ---
 
 <button
@@ -11,37 +9,16 @@ const theme = Astro.cookies.get('theme')?.value ?? 'system';
   class:list={[classes.themeBtn, 'btn btn-round center']}
   role="switch"
   aria-checked="false"
-  aria-label={`${theme} theme`}>
+  aria-label="Switch theme">
   <Icon class="sun" name="sun" />
   <Icon class="moon" name="moon" />
 </button>
 
 <script>
-  import { changeTheme, getSystemTheme, saveTheme } from '@lib/theme';
-  import type { Theme } from 'src/types';
+  import { toggleTheme } from '@lib/theme';
 
   const themeBtn = document.getElementById('themeBtn') as HTMLButtonElement;
+  const root = document.documentElement as HTMLElement;
 
-  const systemTheme = getSystemTheme();
-
-  themeBtn.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('color-scheme') as Theme;
-
-    // Toggle theme between dark and light
-    let newTheme: Theme;
-    if (systemTheme === 'dark' && currentTheme !== 'light') {
-      newTheme = 'light';
-    } else if (systemTheme === 'light' && currentTheme !== 'dark') {
-      newTheme = 'dark';
-    } else {
-      newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    }
-
-    const isDark = newTheme === 'dark';
-    themeBtn.setAttribute('aria-label', `${isDark ? 'dark' : 'light'} theme`);
-    themeBtn.setAttribute('aria-checked', `${isDark}`);
-
-    changeTheme(newTheme);
-    saveTheme(newTheme);
-  });
+  themeBtn.addEventListener('click', () => toggleTheme(root));
 </script>

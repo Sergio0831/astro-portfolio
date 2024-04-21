@@ -51,7 +51,8 @@
 @media screen and (min-width: 60rem) {
   /* Home page styles */
   .columns {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 50% 28.75rem;
+    justify-content: var(--justify-between);
   }
 
   .title {

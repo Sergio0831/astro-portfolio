@@ -1,8 +1,8 @@
 export const aboutMe = {
   aboutMeInfo: [
-    "I'm a passionate Front End Web Developer with experience in building websites and writing code. Before starting a career in web development, I used to work in the hospitality industry as a Head Chef, Sous Chef, and Chef, where I honed my leadership and management skills, creativity, ability to work under pressure, communication skills, business skills,discipline, and attention to detail.",
-    "Now, I'm fully dedicated to pursuing my passion for web development and am currently a student in the Front-End Web Developer Traineeship at CDETB. I'm always eager to learn and grow in the industry and stay up to date with the latest trends and technologies.",
-    "My goal is to become an experienced front-end developer and work on challenging projects that allow me to use my creativity and problem-solving skills. I'm excited to continue exploring new technologies and tools to build beautiful, responsive, and user-friendly websites.",
+    "I'm a passionate Front End Web Developer with experience in building websites and writing code. Before starting a career in web development, I used to work in the hospitality industry, where I honed my leadership and management skills, creativity, ability to work under pressure, communication skills, business skills,discipline, and attention to detail.",
+    "Now, I'm fully dedicated to pursuing my passion for web development. I'm always eager to learn and grow in the industry and stay up to date with the latest trends and technologies.",
+    'I aim to enhance my abilities as a front-end developer by expanding on my current expertise and practice for more challenging projects. I continue exploring new technologies and tools to build beautiful, responsive, and user-friendly websites.',
   ],
   whatIDo: [
     {

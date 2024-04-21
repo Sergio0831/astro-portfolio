@@ -13,10 +13,13 @@ interface Props {
 
 const { pageTitle, pageDescription } = Astro.props;
 
-const theme = Astro.cookies.get('theme')?.value ?? 'system';
+// const theme = Astro.cookies.get('theme')?.value ?? 'system';
+const cookies = Astro.request.headers.get('cookies');
+const theme = cookies?.split('theme=')[1].split(';')[0];
+console.log(theme);
 ---
 
-<html lang="en" color-scheme={theme}>
+<html lang="en" data-theme={theme}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -25,6 +28,19 @@ const theme = Astro.cookies.get('theme')?.value ?? 'system';
     <meta name="generator" content={Astro.generator} />
     <AstroFont />
     <title>{pageTitle}</title>
+    {!theme && (
+			<script is:inline>
+				if (!document.documentElement.dataset.theme) {
+					const theme =
+						document.cookie?.split('theme=')[1]?.split(';')[0] ??
+						(window.matchMedia('(prefers-color-scheme: dark)')?.matches
+							? 'dark'
+							: 'light');
+					document.cookie = `theme=${theme}`;
+					document.documentElement.dataset.theme = theme;
+				}
+			</script>
+		)}
   </head>
   <body>
     <CustomCursor />

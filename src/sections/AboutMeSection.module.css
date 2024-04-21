@@ -29,7 +29,7 @@
   }
 
   .about__columns {
-    grid-template-columns: 47% 28.5rem;
+    grid-template-columns: 50% 28.75rem;
     justify-content: var(--justify-between);
   }
 }
