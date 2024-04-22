@@ -1,0 +1,30 @@
+.projects {
+  background-color: var(--primary-clr-dark-700);
+  height: var(--h-screen);
+  overflow: var(--overflow-hidden);
+  position: relative;
+}
+
+.slide {
+  --offset-y: 15%;
+}
+
+.slide__wrapper {
+  height: var(--h-full);
+  display: var(--d-grid);
+  padding: 0 var(--spacing-5);
+}
+
+.slide__img {
+  align-self: var(--align-start);
+  justify-self: var(--justify-start);
+  position: var(--p-absolute);
+  top: var(--offset-y);
+}
+
+/* Media query for the tablet screen with min-width of the 460px - 28.75rem */
+@media screen and (min-width: 30rem) {
+  .slide {
+    --offset-y: 12%;
+  }
+}

@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+
+const pageTitle = 'Contact Me | Sergejs Ivcenko - Front End Web Developer';
+const pageDescription =
+  "Interested in working together? Use the contact form to discuss opportunities and projects. Let's create something amazing!";
 ---
 
-<BaseLayout
-  pageTitle="Contact Me | Sergejs Ivcenko - Front End Web Developer"
-  pageDescription="Interested in working together? Use the contact form to discuss opportunities and projects. Let's create something amazing!">
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
   <main>
     <h1>Contact Me</h1>
   </main>

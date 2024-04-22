@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import HomeSection from '@sections/HomeSection.astro';
+import HomeSection from '@sections/HomeSection/HomeSection.astro';
+
+const pageTitle = 'Sergejs Ivcenko Portfolio | Front End Web Developer - Dublin';
+const pageDescription =
+  'Passionate, creative, and problem-solving Frontend Web Developer. I create modern, clean, mobile-first, responsive, functional, and beautiful interfaces.';
 ---
 
-<BaseLayout
-  pageTitle="Sergejs Ivcenko Portfolio | Front End Web Developer - Dublin"
-  pageDescription="Passionate, creative, and problem-solving Frontend Web Developer. I create modern, clean, mobile-first, responsive, functional, and beautiful interfaces.">
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
   <main class="center-y">
     <HomeSection />
   </main>

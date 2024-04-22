@@ -13,10 +13,11 @@ interface Props {
 
 const { pageTitle, pageDescription } = Astro.props;
 
-// const theme = Astro.cookies.get('theme')?.value ?? 'system';
+// Extract the cookies from the request headers
 const cookies = Astro.request.headers.get('cookies');
+// Extract the theme value from cookies, if it exists
 const theme = cookies?.split('theme=')[1].split(';')[0];
-console.log(theme);
+
 ---
 
 <html lang="en" data-theme={theme}>
@@ -29,6 +30,7 @@ console.log(theme);
     <AstroFont />
     <title>{pageTitle}</title>
     {!theme && (
+      // This script will be run on page load, check current theme based on the system theme, and set current theme to the cookies
 			<script is:inline>
 				if (!document.documentElement.dataset.theme) {
 					const theme =

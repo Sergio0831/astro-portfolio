@@ -17,8 +17,8 @@ import classes from './ThemeBtn.module.css';
 <script>
   import { toggleTheme } from '@lib/theme';
 
-  const themeBtn = document.getElementById('themeBtn') as HTMLButtonElement;
   const root = document.documentElement as HTMLElement;
+  const themeBtn = document.getElementById('themeBtn') as HTMLButtonElement;
 
-  themeBtn.addEventListener('click', () => toggleTheme(root));
+  themeBtn.addEventListener('click', () => toggleTheme(root, themeBtn));
 </script>

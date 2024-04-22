@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import AboutMeSection from '@sections/AboutMeSection.astro';
-import SkillsSection from '@sections/SkillsSection.astro';
-import WhatIDoSection from '@sections/WhatIDoSection.astro';
+import AboutMeSection from '@sections/AboutMeSection/AboutMeSection.astro';
+import SkillsSection from '@sections/SkillsSection/SkillsSection.astro';
+import WhatIDoSection from '@sections/WhatIDoSection/WhatIDoSection.astro';
+
+const pageTitle = 'About Me | Sergejs Ivcenko - Web Development, Web Design & SEO';
+const pageDescription = 'Passionate about web development, web design, and SEO.';
 ---
 
-<BaseLayout
-  pageTitle="About Me | Sergejs Ivcenko - Web Development, Web Design & SEO"
-  pageDescription="Passionate about web development, web design, and SEO.">
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
   <main>
     <div class="wrapper-outer">
       <AboutMeSection />

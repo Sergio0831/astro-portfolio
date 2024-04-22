@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import classes from './ProjectCard.module.css';
+
+interface Props {
+  project: CollectionEntry<'project'>;
+}
+
+const { project } = Astro.props;
+const {
+  slug,
+  data: { projectLogo, projectTitle, shortDesc, tags },
+} = project;
+---
+
+<article class={classes.card}>
+  <div class={classes.card__header}>
+    <Icon name={projectLogo} accent-height={42} />
+    <ul class={classes.card__tags}>
+      {tags.map((tag) => <li class={classes.card__tag}>{tag}</li>)}
+    </ul>
+  </div>
+  <div class={classes.card__info}>
+    <h2 class:list={[classes.card__title, 'heading-3']}>{projectTitle}</h2>
+    <p class={classes.card__desc}>
+      {shortDesc}
+    </p>
+  </div>
+  <a href={`/projects/${slug}`} class:list={[classes.card__link, 'btn-primary btn-primary--small']}
+    >View Project
+    <Icon name="arrow-right" class={classes.card__icon} />
+  </a>
+</article>

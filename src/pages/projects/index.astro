@@ -1,0 +1,18 @@
+---
+import ProjectsSlider from '@components/ProjectsSlider/ProjectsSlider.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ProjectsSection from '@sections/ProjectsSection/ProjectsSection.astro';
+
+const pageTitle = 'Projects | HTMLS, CSS, React, JasaScript, TypeScript';
+const pageDescription =
+  'Explore my portfolio showcasing a diverse range of web development projects. Build with HTML, CSS, SCSS, React, JasaScript, TypeScript, NextJs, AstroJs.';
+---
+
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+  <main>
+    <div class="wrapper-outer">
+      <ProjectsSection />
+      <ProjectsSlider />
+    </div>
+  </main>
+</BaseLayout>

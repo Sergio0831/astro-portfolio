@@ -1,0 +1,17 @@
+.section {
+  padding: 0 0 var(--spacing-10);
+}
+
+/* Media query for the tablet screen with min-width of the 460px - 28.75rem */
+@media screen and (min-width: 30rem) {
+  .section {
+    margin: 0 0 var(--spacing-15);
+  }
+}
+
+/* Media query for the screen with min-width of the 820px - 51.25rem */
+@media screen and (min-width: 51.25rem) {
+  .section {
+    margin: var(--spacing-8) 0 var(--spacing-15);
+  }
+}

@@ -1,6 +1,6 @@
 ---
-import { aboutMe } from '@data/aboutMe';
-import classes from './Skills.module.css';
+import { aboutMe } from '@data/about-me';
+import classes from './SkillsSection.module.css';
 
 const { skills } = aboutMe;
 ---
@@ -11,3 +11,4 @@ const { skills } = aboutMe;
     {skills.map((skill) => <li class={classes.skills__item}>{skill}</li>)}
   </ul>
 </section>
+@data/about-me
