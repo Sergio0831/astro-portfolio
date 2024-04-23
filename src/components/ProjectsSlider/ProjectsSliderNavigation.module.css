@@ -1,0 +1,45 @@
+.navigation {
+  position: var(--p-absolute);
+  top: var(--spacing-8);
+  right: var(--spacing-8);
+  z-index: 2;
+  column-gap: var(--spacing-2);
+}
+
+.navigation__btn {
+  color: var(--monochrome-clr-light);
+  font-size: var(--text-xl);
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--primary-clr-dark-light);
+  border: none;
+  border-radius: var(--rounded);
+  padding: var(--spacing-1);
+  transition: color var(--transition-base);
+  outline: none;
+}
+
+.navigation__btn:hover {
+  color: var(--secondary-clr-light);
+}
+
+.navigation__btn.slider-btn-disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.icon {
+  rotate: -90deg;
+}
+
+/* Media query for the screen with min-width of the 1060px - 66.25rem */
+@media screen and (min-width: 66.25rem) {
+  /* Projects slider navigation styles */
+  .navigation {
+    display: var(--d-grid);
+    row-gap: var(--spacing-3);
+  }
+
+  .icon {
+    rotate: initial;
+  }
+}

@@ -1,0 +1,26 @@
+.pagination {
+  color: var(--monochrome-clr-light);
+  position: var(--p-absolute);
+  top: var(--spacing-8);
+  left: var(--spacing-8);
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-lg);
+  height: 2.25rem;
+  z-index: 2;
+}
+
+.pagination__current,
+.pagination__total {
+  line-height: 100%;
+}
+
+.pagination__current {
+  color: var(--secondary-clr-light);
+  font-size: var(--text-2xl);
+  width: 2.875rem;
+}
+
+.pagination__total {
+  align-self: var(--align-end);
+  width: var(--w-min);
+}

@@ -8,4 +8,5 @@ previewImage:
   alt: Audiophile Screenshot
 tags: ['NextJs', 'SCSS', 'TS', 'GraphQL']
 projectLogo: audiophile
+createdDate: 2023-07-12
 ---

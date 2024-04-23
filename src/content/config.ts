@@ -11,6 +11,7 @@ const projectCollection = defineCollection({
     }),
     tags: z.array(z.string()),
     projectLogo: z.string(),
+    createdDate: z.date(),
   }),
 });
 

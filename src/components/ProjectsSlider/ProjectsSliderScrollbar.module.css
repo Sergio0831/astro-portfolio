@@ -1,0 +1,9 @@
+.scrollbar {
+  --swiper-scrollbar-border-radius: 0;
+  --swiper-scrollbar-top: 50%;
+  --swiper-scrollbar-right: var(--spacing-8);
+  --swiper-scrollbar-sides-offset: 30%;
+  --swiper-scrollbar-bg-color: var(--monochrome-clr-light);
+  --swiper-scrollbar-drag-bg-color: var(--secondary-clr-light);
+  --swiper-scrollbar-size: 5px;
+}

@@ -1,0 +1,19 @@
+---
+import { Icon } from 'astro-icon/components';
+import classes from './ProjectsSliderNavigation.module.css';
+---
+
+<div class:list={[classes.navigation]}>
+  <button
+    class:list={[classes.navigation__btn, 'prev-slide outline']}
+    type="button"
+    aria-label="Prev Slide">
+    <Icon name="arrow-up" class={classes.icon} />
+  </button>
+  <button
+    class:list={[classes.navigation__btn, 'next-slide outline']}
+    type="button"
+    aria-label="Next Slide">
+    <Icon name="arrow-down" class={classes.icon} />
+  </button>
+</div>

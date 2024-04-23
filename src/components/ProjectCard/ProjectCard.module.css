@@ -16,6 +16,11 @@
   row-gap: var(--spacing-3);
 }
 
+.card__header [data-icon='react'],
+.card__header [data-icon='coffeechino'] {
+  font-size: var(--text-2xl);
+}
+
 .card__tags {
   display: var(--d-flex);
   column-gap: var(--spacing-3);

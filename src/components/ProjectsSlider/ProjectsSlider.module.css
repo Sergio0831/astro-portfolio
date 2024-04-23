@@ -16,8 +16,6 @@
 }
 
 .slide__img {
-  align-self: var(--align-start);
-  justify-self: var(--justify-start);
   position: var(--p-absolute);
   top: var(--offset-y);
 }
@@ -26,5 +24,9 @@
 @media screen and (min-width: 30rem) {
   .slide {
     --offset-y: 12%;
+  }
+
+  .slide__img {
+    justify-self: var(--justify-end);
   }
 }

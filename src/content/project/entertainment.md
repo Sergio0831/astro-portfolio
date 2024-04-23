@@ -8,4 +8,5 @@ previewImage:
   alt: Entertainment Screenshot
 tags: ['NextJs', 'SCSS', 'TS']
 projectLogo: entertainment
+createdDate: 2021-12-07
 ---

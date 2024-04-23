@@ -6,4 +6,5 @@ previewImage:
   alt: CoffeeChino Screenshot
 tags: ['HTML', 'CSS', 'JS']
 projectLogo: coffeechino
+createdDate: 2023-08-30
 ---
