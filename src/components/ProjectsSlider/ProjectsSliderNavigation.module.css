@@ -19,12 +19,9 @@
   outline: none;
 }
 
-.navigation__btn:hover {
+.navigation__btn:hover,
+.navigation__btn:focus-visible {
   color: var(--secondary-clr-light);
-}
-
-.navigation__btn.slider-btn-disabled {
-  color: rgba(255, 255, 255, 0.3);
 }
 
 .icon {

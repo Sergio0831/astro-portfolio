@@ -419,8 +419,9 @@ body {
 
 /* Custom outline */
 .outline {
+  --color: var(--secondary-clr-base);
   position: var(--p-relative);
-  color: var(--secondary-clr-base);
+  color: var(--color);
 }
 
 .outline:before {

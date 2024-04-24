@@ -1,0 +1,37 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import classes from './ProjectsSlide.module.css';
+import type { CollectionEntry } from 'astro:content';
+import ProjectCard from '@components/ProjectCard/ProjectCard.astro';
+
+// Images dynamic import
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/images/projects/preview/*',
+);
+
+const { project } = Astro.props;
+
+interface Props {
+  project: CollectionEntry<'project'>;
+}
+---
+
+<div class:list={[classes.slide, 'swiper-slide']}>
+  <div class:list={[classes.slide__wrapper, 'wrapper-inner']}>
+    {/* Project image start */}
+    <Image
+      src={images[`/src/assets/images/projects/preview/${project.data.previewImage.src}`]()}
+      alt={project.data.previewImage.alt}
+      format="avif"
+      widths={[380, 650]}
+      quality={75}
+      sizes={'(min-width: 460px) 650px, calc(100vw - 30px)'}
+      class={classes.slide__img}
+      width={650}
+      height={488}
+    />
+    {/* Project image end */}
+    <ProjectCard project={project} />
+  </div>
+</div>
