@@ -38,33 +38,35 @@ import portrait from 'src/assets/images/home/portrait.jpg';
       </a>
     </div>
     {/* Home image start */}
-    <div class="image-wrapper"></div>
-    <img
-      class="placeholder"
-      aria-hidden="true"
-      src={placeholder}
-      width={portrait.width}
-      height={portrait.height}
-    />
-    <Picture
-      src={portrait}
-      alt="Sergejs Ivcenko sitting beside monitor"
-      formats={['avif', 'webp']}
-      widths={[400, 460, 760, 900]}
-      pictureAttributes={{ class: 'lazy' }}
-      quality={75}
-      sizes={'(min-width: 960px) 460px, (min-width: 820px) 900px, (min-width: 460px) 760px, 400px'}
-      class:list={[classes.portrait]}
-      fallbackFormat={portrait.format}
-      loading="eager"
-      fetchpriority="high"
-    />
+    <div class="image-wrapper">
+      <img
+        class="placeholder"
+        aria-hidden="true"
+        src={placeholder}
+        width={portrait.width}
+        height={portrait.height}
+        loading="eager"
+        fetchpriority="high"
+      />
+      <Picture
+        src={portrait}
+        alt="Sergejs Ivcenko sitting beside monitor"
+        formats={['avif', 'webp']}
+        widths={[400, 460, 760, 900]}
+        pictureAttributes={{ class: 'lazy' }}
+        quality={75}
+        sizes={'(min-width: 960px) 460px, (min-width: 820px) 900px, (min-width: 460px) 760px, 400px'}
+        class:list={[classes.portrait]}
+        fallbackFormat={portrait.format}
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+    {/* Home image end */}
   </div>
-  {/* Home image end */}
-</section>
 
-<style>
-  /*.parent {
+  <style>
+    /*.parent {
     position: relative;
     padding-top: 100%;
   }
@@ -76,24 +78,23 @@ import portrait from 'src/assets/images/home/portrait.jpg';
   }
   
   */
-  .image-wrapper {
-    display: grid;
+    .image-wrapper {
+      position: relative;
 
-    .placeholder {
-      height: 100%;
-      border-radius: var(--rounded-md);
+      .lazy,
+      .placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: var(--rounded-md);
+      }
     }
+  </style>
 
-    .placeholder,
-    .lazy {
-      grid-area: 1/1/1/1;
-      aspect-ratio: 1/1;
-    }
-  }
-</style>
+  <script>
+    //import LazyLoad from 'vanilla-lazyload';
 
-<script>
-  //import LazyLoad from 'vanilla-lazyload';
-
-  //new LazyLoad();
-</script>
+    //new LazyLoad();
+  </script>
+</section>
