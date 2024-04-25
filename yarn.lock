@@ -790,6 +790,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@rodneylab/picpack@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@rodneylab/picpack/-/picpack-0.1.1.tgz#edb8f0ab8029ca56d4f9f8c6ff39afb709986b32"
+  integrity sha512-uBvrV/wG+VkpYZSmzQrg9pPyPbGQwgIN1O8A6TUYRWUOJNjypA5y8Eg3YihQcQPZXMOy6tGq17oAlG1y9zNnhg==
+
 "@rollup/rollup-android-arm-eabi@4.14.1":
   version "4.14.1"
   resolved "https://registry.yarnpkg.com/@rollup/rollup-android-arm-eabi/-/rollup-android-arm-eabi-4.14.1.tgz#ca0501dd836894216cb9572848c5dde4bfca3bec"

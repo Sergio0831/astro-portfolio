@@ -1,9 +1,14 @@
 ---
+import { readFile } from 'fs/promises';
 import classes from './HomeSection.module.css';
 import Social from '@components/Social/Social.astro';
+import { image_placeholder } from '@rodneylab/picpack';
+import { Picture } from 'astro:assets';
 
-const bluredImage =
-  'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCACJAIkDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAQIDAAUE/8QAFxABAQEBAAAAAAAAAAAAAAAAAAECEf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABcRAQEBAQAAAAAAAAAAAAAAAAABEUH/2gAMAwEAAhEDEQA/APOLM2yIwBjNagw0KaMtjDFggLMyoFJT0tVE9JaV0lpWUtJaV0lpFJQGgg6fG4bjcbYBhZK3GGAMZbhoJYaALMKoWlp6WqynpLS2ktCI6S0tpHQJ0BoIrr8Dh+A2wUBoVGoAgzLcNDQkpoKeCWGVmsWmCqiektLaS0IjpHS20dAlQGgg7QUQrbBaWmpKjUCh1qHUbhpTypymlFUhoSHglEKIVWSaT0pU9CI7Q2vtDYJUBpUV2wolrTBaSmtJaNQtoda0vRqHlNKnKaVFWlNKnKeVUOFDrWjIVLR9VPVES2htbdQ3UVOl62qHQdvoWh0LVZC1O01qeqKFpetaXqtHlNKlKeUXVpTSpSnlGVOtaTrdRGtT1TWp6oJ7qG6ruoboE1S9DVL0NdzpbQ6Fqo1qeqNpLQC0vWtL0XTSmlT6aUNVlPKlKaUFOtaTrdEG1PVG1PVQJuobqm6huiaTVL0uqHVZ13eltbpbRtrSWjaS0AtL1rSqhujKTppQ1SU0qcppQP1rS9C1AbU9UbU9UCbrz7qu6hqjNpLQ61AHcCiFGy0lPSUQlLTUtVGGAMVDQ0LDRFEKzUC1PSlT0gjtHSu0dDPSUBoDT//Z';
+const { buffer } = await readFile(`src/assets/images/home/portrait.jpg`);
+const imageBytes = new Uint8Array(buffer);
+const { base64: placeholder } = image_placeholder(imageBytes);
+import portrait from 'src/assets/images/home/portrait.jpg';
 ---
 
 <section class="wrapper-outer">
@@ -33,27 +38,33 @@ const bluredImage =
       </a>
     </div>
     {/* Home image start */}
-    <div class="parent">
-      <img
-        src={bluredImage}
-        alt="Sergejs Ivcenko Portrait"
-        class:list={[classes.portrait, 'lazy']}
-        loading="eager"
-        fetchpriority="high"
-        data-src="/portrait-460.webp"
-        data-srcset="/portrait-960.webp 960w, /portrait-820.webp 820w, /portrait-460.webp 460w"
-        data-sizes="(max-width: 960px) calc(100vw - 60px), 460px"
-        width={460}
-        height={460}
-      />
-    </div>
-
-    {/* Home image end */}
+    <div class="image-wrapper"></div>
+    <img
+      class="placeholder"
+      aria-hidden="true"
+      src={placeholder}
+      width={portrait.width}
+      height={portrait.height}
+    />
+    <Picture
+      src={portrait}
+      alt="Sergejs Ivcenko sitting beside monitor"
+      formats={['avif', 'webp']}
+      widths={[400, 460, 760, 900]}
+      pictureAttributes={{ class: 'lazy' }}
+      quality={75}
+      sizes={'(min-width: 960px) 460px, (min-width: 820px) 900px, (min-width: 460px) 760px, 400px'}
+      class:list={[classes.portrait]}
+      fallbackFormat={portrait.format}
+      loading="eager"
+      fetchpriority="high"
+    />
   </div>
+  {/* Home image end */}
 </section>
 
 <style>
-  .parent {
+  /*.parent {
     position: relative;
     padding-top: 100%;
   }
@@ -63,10 +74,26 @@ const bluredImage =
     left: 0;
     width: 100%;
   }
+  
+  */
+  .image-wrapper {
+    display: grid;
+
+    .placeholder {
+      height: 100%;
+      border-radius: var(--rounded-md);
+    }
+
+    .placeholder,
+    .lazy {
+      grid-area: 1/1/1/1;
+      aspect-ratio: 1/1;
+    }
+  }
 </style>
 
 <script>
-  import LazyLoad from 'vanilla-lazyload';
+  //import LazyLoad from 'vanilla-lazyload';
 
-  new LazyLoad();
+  //new LazyLoad();
 </script>
